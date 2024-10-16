@@ -360,7 +360,7 @@ async function buy(accountId: PublicKey, accountData: LiquidityStateV4): Promise
       
       // Schedule automatic sell after the AUTO_SELL_DELAY
       const autoSellDelay = Number(retrieveEnvVariable('AUTO_SELL_DELAY', logger));
-      // setTimeout(async () => await scheduleAutoSell(accountData), autoSellDelay);
+      setTimeout(async () => await scheduleAutoSell(accountData), autoSellDelay);
 
     } else {
       logger.info({ mint: accountData.baseMint, signature }, `Error confirming buy tx`);
